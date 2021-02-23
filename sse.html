@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="ex.css">
+    <meta name="keywords" content="small sample estimation, t-distribution, student's t distribution, population mean estimation, population mean difference estimation, null hypothesis, alternative hypothesis">
+    <meta name="author" content="Safak Kurdoglu">
+    <link rel="shortcut icon" type="image/x-icon" href="icon4.jpeg">
+    <title>Stats-Analyze SSE</title>
+</head>
+<body>
+
+<div class="mynav">
+    <div class="nav-items">
+        <a href="index.html"><img id ="nav-img" src="homeicon.png"></a>
+        <a href="zdist.html" class="z-nav">Z Distribution</a>
+        <a href="lse.html" class="l-nav">Large Sample Estimation</a>
+        <a href="sse.html" class="s-nav">Small Sample Estimation</a>
+        <a href="covid.html" class="c-nav">Covid Analysis</a>
+    </div>
+
+    <div class="toggle-bars" onclick="toggleDisp('nav-items')">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</div>
+
+<div id="sscont">
+    <div class="sscontainer" id="ssc-1" style="height: 480px">
+        <form>
+            <h3>Large sample estimation for numerical data</h3>
+            <p>Enter sample mean :</p>
+            <input type="text" id="ssmean">
+            <p>Enter mean std :</p>
+            <input type="text" id="ssstd">
+            <p>Enter sample size :</p>
+            <input type="text" id="sss"><br><br>
+
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onchange="
+            changeDisplay('ssxval-cont','ssconf-cont', 'sscalc', 'ssx', 'ssconf', 'chartContainer6', 'ssprob', 'ssres', 0);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('ssconf-cont','ssxval-cont', 'ssIcalc', 'ssconf', 'ssx', 'chartContainer6', 'ssprob', 'ssres', 0);">
+
+            <div id="ssxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="ssx">
+            </div>
+
+            <div id="ssconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="ssconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="ssres">
+        <div id="chartContainer6" class="chrt"></div>
+        <p id="ssprob" class="vals"></p>
+    </div>
+    
+    <div class="left-border"></div>
+
+    <div class="right-border"></div>
+
+
+
+    <div class="sscontainer" id="ssc-2" style="height: 640px">
+        <form>
+            <h3>Population mean difference for small sample(t-value)</h3>
+            <p>Enter first mean :</p>
+            <input type="text" id="ssdmeanf">
+            <p>Enter first std :</p>
+            <input type="text" id="ssdstdf">
+            <p>Enter first size :</p>
+            <input type="text" id="ssdsf">
+
+            <p>Enter second mean :</p>
+            <input type="text" id="ssdmeans">
+            <p>Enter second std :</p>
+            <input type="text" id="ssdstds">
+            <p>Enter second size :</p>
+            <input type="text" id="ssdss"><br>
+
+            <button type="button" onclick="ssdcalc()" id="bbutton">Calculate</button>
+        </form>
+    </div>
+
+    <div class="ssres">
+        <div id="chartContainer7" class="chrt"></div>
+        <p id="ssdprob" class="vals"></p>
+    </div>
+</div>
+
+<script src="ex.js"></script>
+<script src="canvasjs.min.js"></script>
+</body>
+</html>

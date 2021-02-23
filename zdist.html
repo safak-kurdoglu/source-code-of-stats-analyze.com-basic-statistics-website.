@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="z-distribution, z distribution, z distribution calculator, z-distribution calculator, bell curve, normal distribution, gaussian distribution">
+    <meta name="author" content="Safak Kurdoglu">
+	<link rel="stylesheet" href="ex.css">
+    <link rel="shortcut icon" type="image/x-icon" href="icon4.jpeg">
+    <title>Stats-Analyze Z-Distribution</title>
+</head>
+<body>
+
+<div class="mynav">
+    <div class="nav-items">
+        <a href="index.html"><img id ="nav-img" src="homeicon.png"></a>
+        <a href="zdist.html" class="z-nav">Z Distribution</a>
+        <a href="lse.html" class="l-nav">Large Sample Estimation</a>
+        <a href="sse.html" class="s-nav">Small Sample Estimation</a>
+        <a href="covid.html" class="c-nav">Covid Analysis</a>
+    </div>
+
+    <div class="toggle-bars" onclick="toggleDisp('nav-items')">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</div>
+
+<div id="zcont">
+    <div class="zcontainer" style="height: 420px">
+        <form>
+            <h3>z Distribution</h3>
+            <p>Enter mean :</p>
+            <input type="text" id="zmean">
+            <p>Enter std :</p>
+            <input type="text" id="zstd"><br><br>
+                
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onclick="
+            changeDisplay('zxval-cont','zconf-cont', 'zcalc', 'zx', 'zconf', 'chartContainer1', 'zprob', 'zres', 0);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('zconf-cont','zxval-cont', 'zIcalc','zconf', 'zx', 'chartContainer1', 'zprob', 'zres', 0);">
+
+            <div id="zxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="zx">
+            </div>
+
+            <div id="zconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="zconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="zres">
+        <div id="chartContainer1" class="chrt"></div>
+        <p id="zprob" class="vals"></p>
+    </div>
+</div>
+
+
+
+<script src="ex.js"></script>
+<script src="canvasjs.min.js"></script>    
+</body>
+
+</html>

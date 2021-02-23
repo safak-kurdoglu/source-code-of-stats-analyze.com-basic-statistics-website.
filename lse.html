@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="large sample estimation, z-distribution, normal distribution, population mean estimation, population mean difference estimation">
+    <meta name="author" content="Safak Kurdoglu">
+	<link rel="stylesheet" href="ex.css">
+    <link rel="shortcut icon" type="image/x-icon" href="icon4.jpeg">
+    <title>Stats-Analyze LSE</title>
+</head>
+<body>
+
+<div class="mynav">
+    <div class="nav-items">
+        <a href="index.html"><img id ="nav-img" src="homeicon.png"></a>
+        <a href="zdist.html" class="z-nav">Z Distribution</a>
+        <a href="lse.html" class="l-nav">Large Sample Estimation</a>
+        <a href="sse.html" class="s-nav">Small Sample Estimation</a>
+        <a href="covid.html" class="c-nav">Covid Analysis</a>
+    </div>
+
+    <div class="toggle-bars" onclick="toggleDisp('nav-items')">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</div>
+
+<div id="lscont">
+    <div class="lscontainer" id="lnsc" style="height: 480px">
+        <form>
+            <h3>Large sample estimation for numerical data</h3>
+            <p>Enter sample mean :</p>
+            <input type="text" id="lnsmean">
+            <p>Enter mean std :</p>
+            <input type="text" id="lnsstd">
+            <p>Enter sample size :</p>
+            <input type="text" id="lnsn"><br><br>
+
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onchange="
+            changeDisplay('lnsxval-cont','lnsconf-cont', 'lnscalc', 'lnsx', 'lnsconf', 'chartContainer2', 'lnsprob', 'lsres', 0);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('lnsconf-cont','lnsxval-cont', 'lnsIcalc', 'lnsconf', 'lnsx', 'chartContainer2', 'lnsprob', 'lsres', 0);">
+
+            <div id="lnsxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="lnsx">
+            </div>
+
+            <div id="lnsconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="lnsconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="lsres">
+        <div id="chartContainer2" class="chrt"></div>
+        <p id="lnsprob" class="vals"></p>
+    </div>
+    
+    <div id="pointer">
+        <a href="#lnsc" id="pt1">POPULATION MEAN <br> FOR NUMERİCAL DATA</a><br><br>
+        <a href="#lbsc" id="pt2">POPULATION MEAN <br>FOR BINOMİAL DATA</a><br><br>
+        <a href="#lnsdc" id="pt3">POPULATION MEAN DİFFERENCE <br> FOR NUMERİCAL DATA</a><br><br>
+        <a href="#lbsdc" id="pt4">POPULATION MEAN DİFFERENCE <br> FOR NUMERİCAL DATA</a><br>
+
+    </div>
+
+    <div class="left-border"></div>
+
+    <div class="right-border"></div>
+
+
+
+
+    <div class="lscontainer" id="lbsc" style="height: 420px">
+        <form>
+            <h3>Large sample estimation for binomial data</h3>
+            <p>Enter sample size :</p>
+            <input type="text" id="lbsn">
+            <p>Enter total number of success in the sample :</p>
+            <input type="text" id="lbss"><br><br>
+
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onclick="
+            changeDisplay('lbsxval-cont','lbsconf-cont', 'lbscalc', 'lbsx', 'lbsconf', 'chartContainer3', 'lbsprob', 'lsres', 1);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('lbsconf-cont','lbsxval-cont', 'lbsIcalc', 'lbsconf', 'lbsx', 'chartContainer3', 'lbsprob', 'lsres', 1);">
+
+            <div id="lbsxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="lbsx">
+            </div>
+
+            <div id="lbsconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="lbsconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="lsres">
+        <div id="chartContainer3" class="chrt"></div>
+        <p id="lbsprob" class="vals"></p>
+    </div>
+
+
+    <div class="left-border"></div>
+
+    <div class="right-border"></div>
+
+
+    <div class="lscontainer" id="lnsdc" style="height: 800px">
+        <form>
+            <h3>Large sample estimation for difference between two numerical population means</h3>
+            <p>Enter first sample mean :</p>
+            <input type="text" id="lnsdmf">
+            <p>Enter first sample size :</p>
+            <input type="text" id="lnsdsf">
+            <p>Enter first sample standard deviation :</p>
+            <input type="text" id="lnsdstdf">
+
+            <p>Enter second sample mean :</p>
+            <input type="text" id="lnsdms">
+            <p>Enter second sample size :</p>
+            <input type="text" id="lnsdss">
+            <p>Enter second sample standard deviation :</p>
+            <input type="text" id="lnsdstds"><br><br>
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onclick="
+            changeDisplay('lnsdxval-cont','lnsdconf-cont', 'lnsdcalc', 'lnsdx', 'lnsdconf', 'chartContainer4', 'lsres', 2);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('lnsdconf-cont','lnsdxval-cont', 'lnsdIcalc', 'lnsdconf', 'lnsdx', 'chartContainer4', 'lsres', 2);">
+
+            <div id="lnsdxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="lnsdx">
+            </div>
+
+            <div id="lnsdconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="lnsdconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="lsres">
+        <div id="chartContainer4" class="chrt"></div>
+        <p id="lnsdprob" class="vals"></p>           
+    </div>
+
+    <div class="left-border"></div>
+
+    <div class="right-border"></div>
+
+
+
+    <div class="lscontainer" id="lbsdc" style="height:650px">
+            <form>
+                <h3>Large sample estimation for difference between two binomial population means</h3>
+            <p>Enter first sample size :</p>
+            <input type="text" id="lbsdsf">
+            <p>Enter total number of success in the first sample :</p>
+            <input type="text" id="lbsdpf">
+
+            <p>Enter second sample size :</p>
+            <input type="text" id="lbsdss">
+            <p>Enter total number of success in the second sample :</p>
+            <input type="text" id="lbsdps"><br><br>
+
+            <p style="" class="rawXP">Raw X :</p>
+            <p style="" class="ıntP">Interval :</p><br>
+            <input type="radio" class="r1" name="rad" onclick="
+            changeDisplay('lbsdxval-cont','lbsdconf-cont', 'lbsdcalc', 'lbsdx', 'lbsdconf', 'chartContainer5', 'lbsdprob', 'lsres', 3);">
+
+            <input type="radio" class="r2" name="rad" onclick="
+            changeDisplay('lbsdconf-cont','lbsdxval-cont', 'lbsdIcalc', 'lbsdconf', 'lbsdx', 'chartContainer5', 'lbsdprob','lsres', 3);">
+
+            <div id="lbsdxval-cont">
+                <p>Enter x:</p>
+                <input type="text" id="lbsdx">
+            </div>
+
+            <div id="lbsdconf-cont">
+                <p>Enter Confidence Interval :</p>
+                <input type="text" id="lbsdconf">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="lsres">
+        <div id="chartContainer5" class="chrt"></div>
+        <p id="lbsdprob" class="vals"></p>
+    </div>
+
+    <div class="left-border"></div>
+
+    <div class="right-border"></div>
+
+
+</div>
+
+<script>
+window.addEventListener("scroll", function(){
+    if ((window.innerWidth < 1250 && window.pageYOffset < 1000) || window.pageYOffset < 350){
+    	document.getElementById("pt1").style.opacity = 1;
+    	document.getElementById("pt2").style.opacity = 0.5;
+        document.getElementById("pt3").style.opacity = 0.5;
+        document.getElementById("pt4").style.opacity = 0.5;
+    } else if ((window.innerWidth < 1250 && window.pageYOffset < 2000) || window.pageYOffset < 900){
+    	document.getElementById("pt1").style.opacity = 0.5;
+    	document.getElementById("pt2").style.opacity = 1;
+    	document.getElementById("pt3").style.opacity = 0.5;
+        document.getElementById("pt4").style.opacity = 0.5;
+    } else if ((window.innerWidth < 1250 && window.pageYOffset < 3100) || window.pageYOffset < 1400){
+        document.getElementById("pt1").style.opacity = 0.5;
+    	document.getElementById("pt2").style.opacity = 0.5;
+    	document.getElementById("pt3").style.opacity = 1;
+    	document.getElementById("pt4").style.opacity = 0.5;
+    } else if ((window.innerWidth < 1250 && window.pageYOffset < 4300) || window.pageYOffset > 1620){
+        document.getElementById("pt1").style.opacity = 0.5;
+        document.getElementById("pt2").style.opacity = 0.5;
+    	document.getElementById("pt3").style.opacity = 0.5;
+        document.getElementById("pt4").style.opacity = 1;
+    }
+
+});
+
+
+</script>
+<script src="ex.js"></script>
+<script src="canvasjs.min.js"></script>
+</body>
+</html>
